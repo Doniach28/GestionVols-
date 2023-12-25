@@ -7,19 +7,15 @@ package View;
 import Controller.AeroportController;
 import Model.Aeroport;
 import configs.MyConnexion;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
-
-
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Donia CHAOUCH
  */
 public class Aeroports extends javax.swing.JFrame {
-    
-   
-    
 
     /**
      * Creates new form Aeroports
@@ -75,11 +71,6 @@ public class Aeroports extends javax.swing.JFrame {
         jLabel2.setText("Pays");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "France", "Tunisie", "Algérie", "Marroc" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jButton1.setText("Enregistrer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -96,13 +87,10 @@ public class Aeroports extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nom Aéroport", "Pays"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -114,49 +102,46 @@ public class Aeroports extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jButton1)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jComboBox1, 0, 138, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField1)
+                                    .addComponent(jComboBox1, 0, 138, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(33, 33, 33)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,34 +172,52 @@ public class Aeroports extends javax.swing.JFrame {
                      this.setVisible(false);
                      new IndexUI().setVisible(true);
                 }*/
-             
-             Aeroport aeroport = new Aeroport();
-             aeroport.setNom(jTextField1.getText());
-             aeroport.setPays((String)jComboBox1.getSelectedItem());
-             
-             if(aeroport.getNom().equals("") ){
+
+        Aeroport aeroport = new Aeroport();
+        aeroport.setNom(jTextField1.getText());
+        aeroport.setPays((String) jComboBox1.getSelectedItem());
+
+        if (aeroport.getNom().equals("")) {
             JOptionPane.showMessageDialog(this, "empty nom", "Alert", JOptionPane.ERROR_MESSAGE);
-             }else{
-                  AeroportController ac = new AeroportController();
-               boolean succes =  ac.insert(aeroport);
-                JOptionPane.showMessageDialog(this, "Ajouté avec success ", "Information", JOptionPane.INFORMATION_MESSAGE);
-               System.out.println("succes="+succes);
-             }
-             
-             
+        } else {
+            AeroportController ac = new AeroportController();
+            boolean succes = ac.insert(aeroport);
+            
+            System.out.println("succes=" + succes);
+            if (succes == true){
+                UpdateAeroportTable();
+               JOptionPane.showMessageDialog(this, "Ajouté avec success ", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }else {
+             JOptionPane.showMessageDialog(this, "Erreur d'ajout", "Alert", JOptionPane.ERROR_MESSAGE);
+            }
             
             
-            
-             
-            
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
+     public void UpdateAeroportTable (){
+     
+     AeroportController ac = new AeroportController();
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        ArrayList<Aeroport> aeroportList = new ArrayList<Aeroport>();
+        aeroportList = (ArrayList<Aeroport>) ac.getAll();
 
+       
+       
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setRowCount(0);
+        for (Aeroport aeroport : aeroportList) {
+            model.addRow(new Object[]{
+                aeroport.getNom(),
+                aeroport.getPays(),
+               
+            });
+        }
+        jTable2.setModel(model);
+     
+     
+     }
     /**
      * @param args the command line arguments
      */
@@ -264,9 +267,7 @@ public class Aeroports extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
-   
-
-   /* private static class IndexUI {
+    /* private static class IndexUI {
 
         public IndexUI() {
         }
