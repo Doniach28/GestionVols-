@@ -10,7 +10,7 @@ package Model;
  */
 public class Aeroport {
 
-    private Integer id_aeroport;
+    private Integer id;
 
     
     private String nom, pays;
@@ -24,17 +24,17 @@ public class Aeroport {
     }
 
     public Aeroport(Integer id_aeroport, String nom, String pays) {
-        this.id_aeroport = id_aeroport;
+        this.id = id;
         this.nom = nom;
         this.pays = pays;
     }
 
-    public Integer getId_aeroport() {
-        return id_aeroport;
+    public Integer getId() {
+        return id;
     }
 
-    public void setId_aeroport(Integer id_aeroport) {
-        this.id_aeroport = id_aeroport;
+    public void setId(Integer id) {
+        this.id = id;
     }
     
 
@@ -56,7 +56,7 @@ public class Aeroport {
 
     @Override
     public String toString() {
-        return "Aeroport{" + "id_aeroport=" + id_aeroport + ", nom=" + nom + ", pays=" + pays + '}';
+        return "Aeroport{" + "id=" + id + ", nom=" + nom + ", pays=" + pays + '}';
     }
     
 }
