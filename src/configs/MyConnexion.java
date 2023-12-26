@@ -19,7 +19,7 @@ public class MyConnexion {
      /**
      * Déclaration des variables pour la connexion 
      */
-    private String url="jdbc:mysql://localhost:3308/gestion_vol";
+    private String url="jdbc:mysql://localhost:3308/gestion_vol2";
     private String login="root";
     private String pwd="";
     /**

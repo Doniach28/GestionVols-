@@ -6,6 +6,7 @@ package Controller;
 
 import View.Aeroports;
 import Model.Aeroport;
+
 import configs.Crude;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +34,7 @@ public class AeroportController {
 
     public List<Aeroport> getAll() {
         try {
-            String sql = "SELECT * FROM aeroport";
+            String sql = "SELECT * FROM aeroport ORDER BY pays";
             ResultSet rs = crude.exeRead(sql);
             List<Aeroport> liste = new ArrayList<Aeroport>();
             while (rs.next()) {
@@ -52,6 +53,29 @@ public class AeroportController {
 
             return null;
         }
+    }
+     public List<Aeroport> getAllByPays(String pays) {
+        try {
+            String sql = "SELECT * FROM aeroport  Where pays='"+pays+"' ORDER BY nom ";
+            ResultSet rs = crude.exeRead(sql);
+            List<Aeroport> liste = new ArrayList<Aeroport>();
+            while (rs.next()) {
+                Aeroport aeroport = new Aeroport();
+                aeroport.setId(rs.getInt(1));
+                aeroport.setNom(rs.getString(2));
+                aeroport.setPays(rs.getString(3));
+                
+
+                liste.add(aeroport);
+            }
+            return liste;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erreur AdministratorDAO ", "Erreur ", JOptionPane.ERROR_MESSAGE);
+
+            return null;
+        }
+
     }
 
 }
