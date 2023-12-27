@@ -25,11 +25,14 @@ public class VolController {
         //Check for unique login/pwd
 
         String sql
-                = "INSERT INTO vol (num_vol) VALUES ('"
-                + vol.getNumVol() + "')";
+                = "INSERT INTO vol (datedepart, heuredepart, datearrive, heurearrive) VALUES ('"
+                + vol.getDatedepart() + "',"
+                + vol.getHeuredepart() + "','"
+                + vol.getDatearrive() + "','"
+                + vol.getHeurearrive() + "')";
+        
         System.out.println(sql);
         return crude.exeCreate(sql);
     }
 
-   
 }

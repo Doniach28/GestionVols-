@@ -7,10 +7,12 @@
             <file>file:/D:/Workspace/Java/GestiondeVol/src/View/GestionVols.java</file>
             <file>file:/D:/Workspace/Java/GestiondeVol/src/Model/Vol.java</file>
             <file>file:/D:/Workspace/Java/GestiondeVol/src/Controller/VolController.java</file>
+            <file>file:/D:/Workspace/Java/GestiondeVol/src/Model/Escale.java</file>
             <file>file:/D:/Workspace/Java/GestiondeVol/src/configs/MyConnexion.java</file>
             <file>file:/D:/Workspace/Java/GestiondeVol/src/configs/Crude.java</file>
             <file>file:/D:/Workspace/Java/GestiondeVol/src/View/Aeroports.java</file>
             <file>file:/D:/Workspace/Java/GestiondeVol/src/Controller/AeroportController.java</file>
+            <file>file:/D:/Workspace/Java/GestiondeVol/src/Controller/EscaleController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -4,47 +4,92 @@
  */
 package Model;
 
+import java.util.Date;
+import org.joda.time.LocalTime;
+
 /**
  *
  * @author Donia CHAOUCH
  */
 public class Vol {
     private Integer id ; 
-    private String numVol;
+    private Date datedepart;
+    private LocalTime heuredepart;
+    private Date datearrive;
+    private LocalTime heurearrive;
+    private boolean reservable ;
 
     public Vol() {
     }
 
-    public Vol(String numVol) {
-        this.numVol = numVol;
+    public Vol(Date datedepart, LocalTime heuredepart, Date datearrive, LocalTime heurearrive, boolean reservable) {
+        this.datedepart = datedepart;
+        this.heuredepart = heuredepart;
+        this.datearrive = datearrive;
+        this.heurearrive = heurearrive;
+        this.reservable = reservable;
     }
 
-    public Vol(Integer id, String numVol) {
+    public Vol(Integer id, Date datedepart, LocalTime heuredepart, Date datearrive, LocalTime heurearrive, boolean reservable) {
         this.id = id;
-        this.numVol = numVol;
+        this.datedepart = datedepart;
+        this.heuredepart = heuredepart;
+        this.datearrive = datearrive;
+        this.heurearrive = heurearrive;
+        this.reservable = reservable;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public String getNumVol() {
-        return numVol;
-    }
-    
-
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setNumVol(String numVol) {
-        this.numVol = numVol;
+    public Date getDatedepart() {
+        return datedepart;
+    }
+
+    public void setDatedepart(Date datedepart) {
+        this.datedepart = datedepart;
+    }
+
+    public LocalTime getHeuredepart() {
+        return heuredepart;
+    }
+
+    public void setHeuredepart(LocalTime heuredepart) {
+        this.heuredepart = heuredepart;
+    }
+
+    public Date getDatearrive() {
+        return datearrive;
+    }
+
+    public void setDatearrive(Date datearrive) {
+        this.datearrive = datearrive;
+    }
+
+    public LocalTime getHeurearrive() {
+        return heurearrive;
+    }
+
+    public void setHeurearrive(LocalTime heurearrive) {
+        this.heurearrive = heurearrive;
+    }
+
+    public boolean isReservable() {
+        return reservable;
+    }
+
+    public void setReservable(boolean reservable) {
+        this.reservable = reservable;
     }
 
     @Override
     public String toString() {
-        return "Vol{" + "id=" + id + ", numVol=" + numVol + '}';
+        return "Vol{" + "id=" + id + ", datedepart=" + datedepart + ", heuredepart=" + heuredepart + ", datearrive=" + datearrive + ", heurearrive=" + heurearrive + ", reservable=" + reservable + '}';
     }
-    
     
 }

@@ -12,6 +12,7 @@ import Model.Vol;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import org.joda.time.LocalTime;
 
 /**
  *
@@ -58,6 +59,22 @@ public class GestionVols extends javax.swing.JFrame {
         dateTimeZoneBuilder4 = new org.joda.time.tz.DateTimeZoneBuilder();
         defaultNameProvider1 = new org.joda.time.tz.DefaultNameProvider();
         dateTimeZoneBuilder5 = new org.joda.time.tz.DateTimeZoneBuilder();
+        dateTimeFormatterBuilder6 = new org.joda.time.format.DateTimeFormatterBuilder();
+        defaultNameProvider2 = new org.joda.time.tz.DefaultNameProvider();
+        dateTimeFormatterBuilder7 = new org.joda.time.format.DateTimeFormatterBuilder();
+        dateMidnight3 = new org.joda.time.DateMidnight();
+        dateTimeFormatterBuilder8 = new org.joda.time.format.DateTimeFormatterBuilder();
+        dateTime1 = new org.joda.time.DateTime();
+        dateTimeZoneBuilder6 = new org.joda.time.tz.DateTimeZoneBuilder();
+        instant1 = new org.joda.time.Instant();
+        dateTimeZoneBuilder7 = new org.joda.time.tz.DateTimeZoneBuilder();
+        timeOfDay8 = new org.joda.time.TimeOfDay();
+        period1 = new org.joda.time.Period();
+        dateTimeZoneBuilder8 = new org.joda.time.tz.DateTimeZoneBuilder();
+        dateTimeZoneBuilder9 = new org.joda.time.tz.DateTimeZoneBuilder();
+        dateMidnight4 = new org.joda.time.DateMidnight();
+        dateTime2 = new org.joda.time.DateTime();
+        dateTimeZoneBuilder10 = new org.joda.time.tz.DateTimeZoneBuilder();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -406,8 +423,12 @@ public class GestionVols extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Vol vol = new Vol();
-        vol.setNumVol(jTextField1.getText());
-        if (vol.getNumVol().equals("")) {
+        vol.setDatedepart(jDateChooser2.getDate());
+        vol.setHeuredepart((LocalTime) jSpinner1.getValue());
+        vol.setDatearrive(jDateChooser1.getDate());
+        vol.setHeurearrive((LocalTime) jSpinner2.getValue());
+        
+        if (vol.getDatedepart().equals("")) {
             JOptionPane.showMessageDialog(this, "empty nom", "Alert", JOptionPane.ERROR_MESSAGE);
         } else {
             VolController vc = new VolController();
@@ -508,17 +529,31 @@ public class GestionVols extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.joda.time.DateMidnight dateMidnight1;
     private org.joda.time.DateMidnight dateMidnight2;
+    private org.joda.time.DateMidnight dateMidnight3;
+    private org.joda.time.DateMidnight dateMidnight4;
+    private org.joda.time.DateTime dateTime1;
+    private org.joda.time.DateTime dateTime2;
     private org.joda.time.format.DateTimeFormatterBuilder dateTimeFormatterBuilder1;
     private org.joda.time.format.DateTimeFormatterBuilder dateTimeFormatterBuilder2;
     private org.joda.time.format.DateTimeFormatterBuilder dateTimeFormatterBuilder3;
     private org.joda.time.format.DateTimeFormatterBuilder dateTimeFormatterBuilder4;
     private org.joda.time.format.DateTimeFormatterBuilder dateTimeFormatterBuilder5;
+    private org.joda.time.format.DateTimeFormatterBuilder dateTimeFormatterBuilder6;
+    private org.joda.time.format.DateTimeFormatterBuilder dateTimeFormatterBuilder7;
+    private org.joda.time.format.DateTimeFormatterBuilder dateTimeFormatterBuilder8;
     private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder1;
+    private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder10;
     private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder2;
     private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder3;
     private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder4;
     private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder5;
+    private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder6;
+    private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder7;
+    private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder8;
+    private org.joda.time.tz.DateTimeZoneBuilder dateTimeZoneBuilder9;
     private org.joda.time.tz.DefaultNameProvider defaultNameProvider1;
+    private org.joda.time.tz.DefaultNameProvider defaultNameProvider2;
+    private org.joda.time.Instant instant1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -552,6 +587,7 @@ public class GestionVols extends javax.swing.JFrame {
     private org.joda.time.LocalDateTime localDateTime1;
     private org.joda.time.LocalDateTime localDateTime2;
     private org.joda.time.LocalTime localTime1;
+    private org.joda.time.Period period1;
     private org.joda.time.TimeOfDay timeOfDay1;
     private org.joda.time.TimeOfDay timeOfDay2;
     private org.joda.time.TimeOfDay timeOfDay3;
@@ -559,5 +595,6 @@ public class GestionVols extends javax.swing.JFrame {
     private org.joda.time.TimeOfDay timeOfDay5;
     private org.joda.time.TimeOfDay timeOfDay6;
     private org.joda.time.TimeOfDay timeOfDay7;
+    private org.joda.time.TimeOfDay timeOfDay8;
     // End of variables declaration//GEN-END:variables
 }

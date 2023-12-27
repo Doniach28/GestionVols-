@@ -48,6 +48,38 @@
     </Component>
     <Component class="org.joda.time.tz.DateTimeZoneBuilder" name="dateTimeZoneBuilder5">
     </Component>
+    <Component class="org.joda.time.format.DateTimeFormatterBuilder" name="dateTimeFormatterBuilder6">
+    </Component>
+    <Component class="org.joda.time.tz.DefaultNameProvider" name="defaultNameProvider2">
+    </Component>
+    <Component class="org.joda.time.format.DateTimeFormatterBuilder" name="dateTimeFormatterBuilder7">
+    </Component>
+    <Component class="org.joda.time.DateMidnight" name="dateMidnight3">
+    </Component>
+    <Component class="org.joda.time.format.DateTimeFormatterBuilder" name="dateTimeFormatterBuilder8">
+    </Component>
+    <Component class="org.joda.time.DateTime" name="dateTime1">
+    </Component>
+    <Component class="org.joda.time.tz.DateTimeZoneBuilder" name="dateTimeZoneBuilder6">
+    </Component>
+    <Component class="org.joda.time.Instant" name="instant1">
+    </Component>
+    <Component class="org.joda.time.tz.DateTimeZoneBuilder" name="dateTimeZoneBuilder7">
+    </Component>
+    <Component class="org.joda.time.TimeOfDay" name="timeOfDay8">
+    </Component>
+    <Component class="org.joda.time.Period" name="period1">
+    </Component>
+    <Component class="org.joda.time.tz.DateTimeZoneBuilder" name="dateTimeZoneBuilder8">
+    </Component>
+    <Component class="org.joda.time.tz.DateTimeZoneBuilder" name="dateTimeZoneBuilder9">
+    </Component>
+    <Component class="org.joda.time.DateMidnight" name="dateMidnight4">
+    </Component>
+    <Component class="org.joda.time.DateTime" name="dateTime2">
+    </Component>
+    <Component class="org.joda.time.tz.DateTimeZoneBuilder" name="dateTimeZoneBuilder10">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
