@@ -7,6 +7,7 @@ package View;
 import Controller.AeroportController;
 import Controller.VolController;
 import Model.Aeroport;
+import Model.ComboItem;
 import Model.Vol;
 
 import java.util.ArrayList;
@@ -110,6 +111,7 @@ public class GestionVols extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -354,16 +356,15 @@ public class GestionVols extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))))
-                .addContainerGap(347, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 541, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,7 +378,15 @@ public class GestionVols extends javax.swing.JFrame {
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 460, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 590, -1));
+
+        jCheckBox1.setText("Reservable");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 85, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -396,21 +405,26 @@ public class GestionVols extends javax.swing.JFrame {
         // TODO add your handling code here:
         /*java.util.Date dateUtil = vc.getDateCreation();
         java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime());*/
-        
+
         Vol vol = new Vol();
-       
+
         vol.setDatedepart(jDateChooser2.getDate());
-        vol.setHeuredepart(jComboBox3.getSelectedItem()+ ":" + jComboBox4.getSelectedItem() + " " + jComboBox5.getSelectedItem());
+        vol.setHeuredepart(jComboBox3.getSelectedItem() + ":" + jComboBox4.getSelectedItem() + " " + jComboBox5.getSelectedItem());
         vol.setDatearrive(jDateChooser1.getDate());
-       
-        vol.setHeurearrive(jComboBox8.getSelectedItem()+ ":" + jComboBox9.getSelectedItem() + " " + jComboBox10.getSelectedItem());
-         vol.setReservable(false);
+
+        vol.setHeurearrive(jComboBox8.getSelectedItem() + ":" + jComboBox9.getSelectedItem() + " " + jComboBox10.getSelectedItem());
+        vol.setReservable(jCheckBox1.isSelected());
 
         if (vol.getDatedepart().equals("")) {
             JOptionPane.showMessageDialog(this, "empty nom", "Alert", JOptionPane.ERROR_MESSAGE);
         } else {
             VolController vc = new VolController();
-            boolean succes = vc.insert(vol);
+            
+            
+            ComboItem aeroport_depart =(ComboItem)  jComboBox2.getSelectedItem();
+            ComboItem aeroport_arrive =(ComboItem)  jComboBox7.getSelectedItem();
+            boolean succes = vc.insert(vol,aeroport_depart.getKey(),aeroport_arrive.getKey() );
+            
 
             System.out.println("succes=" + succes);
             if (succes == true) {
@@ -437,8 +451,8 @@ public class GestionVols extends javax.swing.JFrame {
         jComboBox2.removeAllItems();
 
         for (Aeroport aeroport : aeroportList) {
-
-            jComboBox2.addItem(aeroport.getNom());
+          
+            jComboBox2.addItem( new ComboItem(aeroport.getId(), aeroport.getNom()));
 
         }
     }
@@ -459,7 +473,7 @@ public class GestionVols extends javax.swing.JFrame {
 
         for (Aeroport aeroport : aeroportList) {
 
-            jComboBox7.addItem(aeroport.getNom());
+              jComboBox7.addItem( new ComboItem(aeroport.getId(), aeroport.getNom()));
 
         }
     }
@@ -482,6 +496,10 @@ public class GestionVols extends javax.swing.JFrame {
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox9ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /* @param args the command line arguments
      */
@@ -552,14 +570,15 @@ public class GestionVols extends javax.swing.JFrame {
     private org.joda.time.Instant instant1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<ComboItem> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<ComboItem> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
     private com.toedter.calendar.JDateChooser jDateChooser1;

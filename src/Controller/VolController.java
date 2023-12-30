@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Model.Aeroport;
 import Model.Vol;
 import Model.Vol;
 import configs.Crude;
@@ -24,27 +25,23 @@ import javax.swing.JOptionPane;
 public class VolController {
 
     private Crude crude = new Crude();
-    
 
-
-    public boolean insert(Vol vol) {
+    public boolean insert(Vol vol, Integer id_aeroport_depart, Integer id_aeroport_arrive) {
         //Check for unique login/pwd
-      //INSERT INTO `vol`( `datedepart`, `heuredepart`, `datearrive`, `heurearrive`, `reservable`) VALUES (str_to_date('11/20/2020', '%m/%d/%Y'),str_to_date('09:00 AM','%h:%i %p'),str_to_date('10/20/2022', '%m/%d/%Y'),str_to_date('10:00 PM','%h:%i %p'),1);
-      DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-      
-        
-      String sql
-                = "INSERT INTO vol (datedepart, heuredepart, datearrive, heurearrive, reservable) VALUES ("
-              + "str_to_date('"+dateFormat.format(vol.getDatedepart())+"', '%d/%m/%Y'),"
-                //+dateFormat.format(vol.getDatedepart())  + "',"
-             +" str_to_date('"+vol.getHeuredepart()+"','%h:%i %p'),"
-                //+vol.getHeuredepart() + "',"
-              + "str_to_date('"+dateFormat.format(vol.getDatearrive())+"', '%d/%m/%Y'),"
-                //+dateFormat.format(vol.getDatearrive()) + "','"
-              +" str_to_date('"+vol.getHeurearrive()+"','%h:%i %p'),"
-                //+vol.getHeurearrive() + "',"
-                + vol.isReservable()+")";
-        
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        String sql
+                = "INSERT INTO vol (datedepart, heuredepart, datearrive, heurearrive, reservable, id_aeroport_depart, id_aeroport_arrive) VALUES ("
+                + "str_to_date('" + dateFormat.format(vol.getDatedepart()) + "', '%d/%m/%Y'),"
+                + " str_to_date('" + vol.getHeuredepart() + "','%h:%i %p'),"
+                + "str_to_date('" + dateFormat.format(vol.getDatearrive()) + "', '%d/%m/%Y'),"
+                + " str_to_date('" + vol.getHeurearrive() + "','%h:%i %p'),"
+                + vol.isReservable() + ","
+                + id_aeroport_depart + ","
+                + id_aeroport_arrive
+                + ")";
+
         System.out.println(sql);
         return crude.exeCreate(sql);
     }
