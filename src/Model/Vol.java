@@ -14,15 +14,15 @@ import org.joda.time.LocalTime;
 public class Vol {
     private Integer id ; 
     private Date datedepart;
-    private LocalTime heuredepart;
+    private String heuredepart;
     private Date datearrive;
-    private LocalTime heurearrive;
+    private String heurearrive;
     private boolean reservable ;
 
     public Vol() {
     }
 
-    public Vol(Date datedepart, LocalTime heuredepart, Date datearrive, LocalTime heurearrive, boolean reservable) {
+    public Vol(Date datedepart, String heuredepart, Date datearrive, String heurearrive, boolean reservable) {
         this.datedepart = datedepart;
         this.heuredepart = heuredepart;
         this.datearrive = datearrive;
@@ -30,7 +30,7 @@ public class Vol {
         this.reservable = reservable;
     }
 
-    public Vol(Integer id, Date datedepart, LocalTime heuredepart, Date datearrive, LocalTime heurearrive, boolean reservable) {
+    public Vol(Integer id, Date datedepart, String heuredepart, Date datearrive, String heurearrive, boolean reservable) {
         this.id = id;
         this.datedepart = datedepart;
         this.heuredepart = heuredepart;
@@ -38,6 +38,8 @@ public class Vol {
         this.heurearrive = heurearrive;
         this.reservable = reservable;
     }
+
+    
 
     public Integer getId() {
         return id;
@@ -55,11 +57,11 @@ public class Vol {
         this.datedepart = datedepart;
     }
 
-    public LocalTime getHeuredepart() {
+    public String getHeuredepart() {
         return heuredepart;
     }
 
-    public void setHeuredepart(LocalTime heuredepart) {
+    public void setHeuredepart(String heuredepart) {
         this.heuredepart = heuredepart;
     }
 
@@ -71,11 +73,11 @@ public class Vol {
         this.datearrive = datearrive;
     }
 
-    public LocalTime getHeurearrive() {
+    public String getHeurearrive() {
         return heurearrive;
     }
 
-    public void setHeurearrive(LocalTime heurearrive) {
+    public void setHeurearrive(String heurearrive) {
         this.heurearrive = heurearrive;
     }
 
@@ -91,5 +93,9 @@ public class Vol {
     public String toString() {
         return "Vol{" + "id=" + id + ", datedepart=" + datedepart + ", heuredepart=" + heuredepart + ", datearrive=" + datearrive + ", heurearrive=" + heurearrive + ", reservable=" + reservable + '}';
     }
+
+  
+
+  
     
 }
