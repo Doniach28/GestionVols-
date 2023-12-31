@@ -16,13 +16,13 @@ public class EscaleController {
 
     private Crude crude = new Crude();
 
-    public boolean insert(Escale escale) {
+    public boolean insert(Escale escale , Integer id_vol, Integer id_aeroport) {
         //Check for unique login/pwd
 
         String sql
-                = "INSERT INTO escale (heurearrive , heuredepart ) VALUES ('"
-                + escale.getHeurearrive() + "','"
-                + escale.getHeuredepart() + "')";
+                = "INSERT INTO escale (id_vol , id_aeroport ) VALUES ("
+                + id_vol + ","
+                + id_aeroport + ")";
 
         System.out.println(sql);
         return crude.exeCreate(sql);
