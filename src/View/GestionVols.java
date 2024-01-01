@@ -5,9 +5,11 @@
 package View;
 
 import Controller.AeroportController;
+import Controller.EscaleController;
 import Controller.VolController;
 import Model.Aeroport;
 import Model.ComboItem;
+import Model.Escale;
 import Model.Vol;
 
 import java.util.ArrayList;
@@ -467,13 +469,14 @@ public class GestionVols extends javax.swing.JFrame {
             
 
             System.out.println("succes=" + succes);
+           
             if (succes == true) {
 
                 JOptionPane.showMessageDialog(this, "Ajouté avec success ", "Information", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this, "Erreur d'ajout", "Alert", JOptionPane.ERROR_MESSAGE);
             }
-
+  
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

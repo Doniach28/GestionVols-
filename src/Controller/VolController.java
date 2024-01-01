@@ -46,4 +46,25 @@ public class VolController {
         return crude.exeCreate(sql);
     }
 
+    public List<Aeroport> getAll() {
+        try {
+            String sql = "SELECT * FROM vol ORDER BY pays";
+            ResultSet rs = crude.exeRead(sql);
+            List<Aeroport> liste = new ArrayList<Aeroport>();
+            while (rs.next()) {
+                Aeroport aeroport = new Aeroport();
+                aeroport.setId(rs.getInt(1));
+                aeroport.setNom(rs.getString(2));
+                aeroport.setPays(rs.getString(3));
+
+                liste.add(aeroport);
+            }
+            return liste;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erreur AdministratorDAO ", "Erreur ", JOptionPane.ERROR_MESSAGE);
+
+            return null;
+        }
+    }
 }
