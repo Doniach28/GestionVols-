@@ -12,18 +12,18 @@ import org.joda.time.LocalTime;
  */
 public class Escale {
     private Integer Id;
-    private LocalTime heurearrive;
-    private LocalTime heuredepart;
+    private String heurearrive;
+    private String heuredepart;
 
     public Escale() {
     }
 
-    public Escale(LocalTime heurearrive, LocalTime heuredepart) {
+    public Escale(String heurearrive, String heuredepart) {
         this.heurearrive = heurearrive;
         this.heuredepart = heuredepart;
     }
 
-    public Escale(Integer Id, LocalTime heurearrive, LocalTime heuredepart) {
+    public Escale(Integer Id, String heurearrive, String heuredepart) {
         this.Id = Id;
         this.heurearrive = heurearrive;
         this.heuredepart = heuredepart;
@@ -37,19 +37,19 @@ public class Escale {
         this.Id = Id;
     }
 
-    public LocalTime getHeurearrive() {
+    public String getHeurearrive() {
         return heurearrive;
     }
 
-    public void setHeurearrive(LocalTime heurearrive) {
+    public void setHeurearrive(String heurearrive) {
         this.heurearrive = heurearrive;
     }
 
-    public LocalTime getHeuredepart() {
+    public String getHeuredepart() {
         return heuredepart;
     }
 
-    public void setHeuredepart(LocalTime heuredepart) {
+    public void setHeuredepart(String heuredepart) {
         this.heuredepart = heuredepart;
     }
 
@@ -57,7 +57,7 @@ public class Escale {
     public String toString() {
         return "Escale{" + "Id=" + Id + ", heurearrive=" + heurearrive + ", heuredepart=" + heuredepart + '}';
     }
-    
-    
+
+  
     
 }

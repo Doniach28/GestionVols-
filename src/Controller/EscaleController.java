@@ -5,8 +5,11 @@
 package Controller;
 
 import Model.Escale;
+import Model.Vol;
 
 import configs.Crude;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -16,13 +19,16 @@ public class EscaleController {
 
     private Crude crude = new Crude();
 
-    public boolean insert(Escale escale , Integer id_vol, Integer id_aeroport) {
+    public boolean insert(Escale escale) {
         //Check for unique login/pwd
 
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
         String sql
-                = "INSERT INTO escale (id_vol , id_aeroport ) VALUES ("
-                + id_vol + ","
-                + id_aeroport + ")";
+                = "INSERT INTO escale ( heurearrive ,heuredepart) VALUES ("
+                + " str_to_date('" + escale.getHeurearrive() + "','%h:%i %p'),"
+                + " str_to_date('" + escale.getHeuredepart() + "','%h:%i %p'),"
+                + ")";
 
         System.out.println(sql);
         return crude.exeCreate(sql);
