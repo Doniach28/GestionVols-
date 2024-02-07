@@ -84,7 +84,7 @@ public class Aeroports extends javax.swing.JFrame {
         jLabel2.setText("Pays");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 94, 28));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "France", "Tunisie", "Algérie", "Marroc" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "France", "Tunisie", "Algérie", "Marroc", "Italy" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
